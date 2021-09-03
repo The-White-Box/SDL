@@ -10,6 +10,11 @@ set(CMAKE_POLICY_DEFAULT_CMP0091 NEW)
 # See docs/release_checklist.md
 project(SDL3 LANGUAGES C VERSION "3.1.2")
 
+# Include file check macros honor CMAKE_REQUIRED_LIBRARIES.
+if (POLICY CMP0075)
+  cmake_policy(SET CMP0075 NEW)
+endif()
+
 if(CMAKE_SOURCE_DIR STREQUAL PROJECT_SOURCE_DIR)
   set(SDL3_SUBPROJECT OFF)
 else()
