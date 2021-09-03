@@ -7,6 +7,11 @@ endif()
 # See docs/release_checklist.md
 project(SDL3 LANGUAGES C VERSION "3.2.3")
 
+# Include file check macros honor CMAKE_REQUIRED_LIBRARIES.
+if (POLICY CMP0075)
+  cmake_policy(SET CMP0075 NEW)
+endif()
+
 if(CMAKE_SOURCE_DIR STREQUAL PROJECT_SOURCE_DIR)
   set(SDL3_MAINPROJECT ON)
 else()
